@@ -54,17 +54,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     // 状态栏, 只有一个
     // 获取窗口的状态栏
-
     QStatusBar *statusBar = this->statusBar();
-
     QLabel * leftLabel = new QLabel("左侧信息", this);
     QLabel * leftLabel2 = new QLabel("左侧信息2", this);
-
     QLabel * rightLabel = new QLabel("右侧信息", this);
 
     statusBar->addWidget(leftLabel);
     statusBar->addWidget(leftLabel2);
-
     statusBar->addPermanentWidget(rightLabel);
 
 }
