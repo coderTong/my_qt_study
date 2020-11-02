@@ -5,6 +5,9 @@
 #include <QLabel>
 #include <QStatusBar>
 
+#include <QDockWidget>
+#include <QTextEdit>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -62,6 +65,16 @@ MainWindow::MainWindow(QWidget *parent)
     statusBar->addWidget(leftLabel);
     statusBar->addWidget(leftLabel2);
     statusBar->addPermanentWidget(rightLabel);
+
+
+    //停靠部件，可以有多个
+    QDockWidget *dockWidget = new QDockWidget("停靠部件",this);
+    //默认情况下没有核心部件作为参照物，停靠部件会占完窗口
+    this->addDockWidget(Qt::BottomDockWidgetArea,dockWidget);
+
+    //添加核心部件
+    QTextEdit *textEdit = new QTextEdit(this);
+    this->setCentralWidget(textEdit);
 
 }
 
