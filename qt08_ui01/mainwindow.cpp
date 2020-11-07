@@ -12,6 +12,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // 往状态栏添加信息
     ui->statusBar->addWidget(new QLabel("左侧信息", this));
+
+    // 使用图片资源
+    // 1. 使用绝对路径
+//    ui->actionnew->setIcon( QIcon("/Users/codew/Desktop/qt/resource/images/addDeviceIcon.png") );
+
+    // 2. 使用资源文件
+    // 使用资源文件的路径形式
+    // 冒号: + 前缀 / + 目录文件名
+    ui->actionnew->setIcon( QIcon(":/Image/Luffy.png") );
 }
 
 MainWindow::~MainWindow()
