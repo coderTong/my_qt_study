@@ -15,8 +15,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-public slots:
-    void deallocDialog();
+
 
 
 public:
@@ -24,6 +23,17 @@ public:
 
 public:
     QDialog *dlg;
+
+private slots:
+    void on_actionCritical_triggered();
+
+    void on_actionWarning_triggered();
+
+    void on_actioninfo_triggered();
+
+    void on_actionQuestion_triggered();
+
+    void on_actionQFileDialog_triggered();
 
 private:
     Ui::MainWindow *ui;

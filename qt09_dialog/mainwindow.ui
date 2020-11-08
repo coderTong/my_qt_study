@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>797</width>
+    <height>383</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>797</width>
      <height>22</height>
     </rect>
    </property>
@@ -29,6 +29,11 @@
     </property>
     <addaction name="actionModal"/>
     <addaction name="actionNoModal"/>
+    <addaction name="actionCritical"/>
+    <addaction name="actionWarning"/>
+    <addaction name="actioninfo"/>
+    <addaction name="actionQuestion"/>
+    <addaction name="actionQFileDialog"/>
    </widget>
    <addaction name="menu"/>
   </widget>
@@ -41,6 +46,11 @@
    </attribute>
    <addaction name="actionModal"/>
    <addaction name="actionNoModal"/>
+   <addaction name="actionCritical"/>
+   <addaction name="actionWarning"/>
+   <addaction name="actioninfo"/>
+   <addaction name="actionQuestion"/>
+   <addaction name="actionQFileDialog"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionModal">
@@ -51,6 +61,31 @@
   <action name="actionNoModal">
    <property name="text">
     <string>NoModal</string>
+   </property>
+  </action>
+  <action name="actionCritical">
+   <property name="text">
+    <string>Critical</string>
+   </property>
+  </action>
+  <action name="actionWarning">
+   <property name="text">
+    <string>Warning</string>
+   </property>
+  </action>
+  <action name="actioninfo">
+   <property name="text">
+    <string>info</string>
+   </property>
+  </action>
+  <action name="actionQuestion">
+   <property name="text">
+    <string>Question</string>
+   </property>
+  </action>
+  <action name="actionQFileDialog">
+   <property name="text">
+    <string>QFileDialog</string>
    </property>
   </action>
  </widget>
