@@ -23,13 +23,18 @@ StartVC::StartVC(QWidget *parent) : WTMainWindow(parent)
 
 //    });
 
+    // 第二个窗口返回按钮
     connect(&this->mSelectVC, &SelectVC::wtBackBtnClicked, [=](){
 
+        QSound::play(":/res/BackButtonSound.wav");
         this->show();
         this->mSelectVC.hide();
     });
 
+    // 开始按钮被点击
     connect(btnStart, &MyButton::clicked, [=](){
+
+        QSound::play(":/res/TapButtonSound.wav");
 
         // 动画完成前,按钮不可用
         btnStart->setEnabled(false);

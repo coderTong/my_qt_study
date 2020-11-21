@@ -28,6 +28,9 @@ private:
 
     // 硬币数组
     CoinButton *mCoins[4][4];
+
+    //
+    bool mHasWin;
 };
 
 #endif // PLAYVC_H

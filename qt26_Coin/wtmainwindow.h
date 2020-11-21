@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QPainter>
 #include <QPixmap>
+#include <QSound>
 
 namespace Ui {
 class WTMainWindow;

@@ -13,6 +13,7 @@
 
 PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
 {
+    mHasWin = false;
     MyButton * btn = new MyButton(":/res/BackButton.png",":/res/BackButtonSelected.png", this);
     btn->resize(72,32);
     connect(btn, &QPushButton::clicked, this, &PlayVC::wtBackBtnClicked);
@@ -81,6 +82,15 @@ PlayVC::~PlayVC()
 
 void PlayVC::flip(int row, int col)
 {
+    // 如果胜利了直接返回
+    if (mHasWin)
+    {
+        return;
+    }
+
+    // 翻转金币的音效
+    QSound::play(":/res/ConFlipSound.wav");
+
     this->mCoins[row][col]->flip();
 
     // 翻动上下左右的硬币
@@ -153,6 +163,10 @@ void PlayVC::judgeWin()
 
     // 到这一步, 所有都是金币了
 //    QMessageBox::information(this, "恭喜","你已经胜利了!");
+
+    mHasWin = true;
+
+    QSound::play(":/res/LevelWinSound.wav");
 
     QLabel *labelWin = new QLabel(this);
 
