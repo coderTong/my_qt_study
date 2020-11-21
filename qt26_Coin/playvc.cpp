@@ -8,6 +8,9 @@
 
 #include <QMessageBox>
 
+#include <QLabel>
+#include <QPropertyAnimation>
+
 PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
 {
     MyButton * btn = new MyButton(":/res/BackButton.png",":/res/BackButtonSelected.png", this);
@@ -149,7 +152,29 @@ void PlayVC::judgeWin()
     }
 
     // 到这一步, 所有都是金币了
-    QMessageBox::information(this, "恭喜","你已经胜利了!");
+//    QMessageBox::information(this, "恭喜","你已经胜利了!");
+
+    QLabel *labelWin = new QLabel(this);
+
+    QPixmap pix = QPixmap(":/res/LevelCompletedDialogBg.png");
+
+    labelWin->setPixmap( pix);
+    labelWin->resize(pix.size());
+    labelWin->show();
+
+    labelWin->move( (this->width() - labelWin->width())/2, -labelWin->height()  );
+
+    QPropertyAnimation * animation = new QPropertyAnimation(labelWin, "geometry", this);
+    animation->setStartValue(labelWin->geometry());
+    animation->setEndValue( QRect(labelWin->x(),
+                                  labelWin->y() + 100,
+                                  labelWin->width(),
+                                  labelWin->height()) );
+    animation->setDuration(500);
+    // 设置动画的运动曲线
+    animation->setEasingCurve(QEasingCurve::OutBounce);
+    //
+    animation->start( QAbstractAnimation::DeleteWhenStopped );
 }
 
 
