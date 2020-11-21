@@ -2,6 +2,11 @@
 #include <QApplication>
 
 #include "startvc.h"
+#include "selectvc.h"
+
+
+
+
 
 int main(int argc, char *argv[])
 {
@@ -11,6 +16,9 @@ int main(int argc, char *argv[])
 
     StartVC sVC;
     sVC.show();
+
+//    SelectVC sVC;
+//    sVC.show();
 
     return a.exec();
 }

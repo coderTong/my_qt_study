@@ -2,9 +2,19 @@
 
 #include <QPropertyAnimation>
 
-MyButton::MyButton(QWidget *parent) : QPushButton(parent)
-{
+//MyButton::MyButton(QWidget *parent) : QPushButton(parent)
+//{
 
+//}
+
+MyButton::MyButton(QString normalImage, QString pressedImage, QWidget *parent)
+    : QPushButton(parent),
+      mNormalImage(normalImage),
+      mPressedImage(pressedImage)
+
+
+{
+    mState = Normal;
 }
 
 void MyButton::moveDown()
@@ -37,7 +47,41 @@ void MyButton::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
 
-    QPixmap pix(":/res/MenuSceneStartButton.png");
+    //QPixmap pix(":/res/MenuSceneStartButton.png");
+//    QPixmap pix(mNormalImage);
+
+    QPixmap pix;
+    if (mState == Normal){
+
+        pix.load(mNormalImage);
+    }
+
+    if (mState == Pressed){
+
+        pix.load(mPressedImage);
+    }
+
+
     painter.drawPixmap(0,0,this->width(), this->height(), pix);
 
+}
+
+// 鼠标按下
+void MyButton::mousePressEvent(QMouseEvent *event)
+{
+    this->mState = Pressed;
+    update();
+
+    // 保证信号槽功能
+    QPushButton::mousePressEvent(event);
+}
+
+// 鼠标松开
+void MyButton::mouseReleaseEvent(QMouseEvent *event)
+{
+    this->mState = Normal;
+    update();
+
+    // 保证信号槽功能
+    QPushButton::mouseReleaseEvent(event);
 }

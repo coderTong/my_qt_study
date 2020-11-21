@@ -12,6 +12,9 @@ class SelectVC : public WTMainWindow
 public:
     explicit SelectVC(QWidget *parent = nullptr);
 
+protected:
+    void paintEvent(QPaintEvent *event);
+
 signals:
     void wtBackBtnClicked();
 

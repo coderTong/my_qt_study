@@ -10,7 +10,7 @@ StartVC::StartVC(QWidget *parent) : WTMainWindow(parent)
     this->setWindowTitle("开始");
 
 
-    MyButton * btnStart = new MyButton(this);
+    MyButton * btnStart = new MyButton(":/res/MenuSceneStartButton.png",":/res/MenuSceneStartButton.png",this);
     btnStart->resize(114,114);
 
 
