@@ -6,6 +6,8 @@
 
 #include "coinbutton.h"
 
+#include "dataconfig.h"
+
 PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
 {
     MyButton * btn = new MyButton(":/res/BackButton.png",":/res/BackButtonSelected.png", this);
@@ -25,6 +27,8 @@ PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
     label->setFont( QFont("华文新魏", 20) );
     label->move(30, this->height() - label->height());
 
+    dataConfig data;
+    QVector < QVector<int>> dataArray = data.mData[level];
 
     // 16个硬币按钮
     // 关卡按钮20个
@@ -49,7 +53,7 @@ PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
 
            // move + resize 就等iOS setFrame
            btn->setGeometry(x,y,50,50);
-           btn->setState(1);
+           btn->setState(dataArray[row][col]);
 
 
            connect(btn, &QPushButton::clicked, [=](){
