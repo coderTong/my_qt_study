@@ -31,7 +31,8 @@ SOURCES += \
     mybutton.cpp \
     selectvc.cpp \
     playvc.cpp \
-    coinbutton.cpp
+    coinbutton.cpp \
+    dataconfig.cpp
 
 HEADERS += \
         wtmainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     mybutton.h \
     selectvc.h \
     playvc.h \
-    coinbutton.h
+    coinbutton.h \
+    dataconfig.h
 
 FORMS += \
         wtmainwindow.ui
