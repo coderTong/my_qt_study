@@ -3,6 +3,7 @@
 
 #include "wtmainwindow.h"
 #include "mybutton.h"
+#include "selectvc.h"
 
 class StartVC : public WTMainWindow
 {
@@ -13,6 +14,9 @@ public:
 signals:
 
 public slots:
+
+private:
+    SelectVC mSelectVC;
 };
 
 #endif // STARTVC_H

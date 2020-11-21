@@ -5,6 +5,8 @@
 StartVC::StartVC(QWidget *parent) : WTMainWindow(parent)
 {
 
+
+
     this->setWindowTitle("开始");
 
 
@@ -17,6 +19,15 @@ StartVC::StartVC(QWidget *parent) : WTMainWindow(parent)
 
     btnStart->move(btnX, btnY);
 
+//    connect(this->selectVC, &SelectVC::backBtnClicked, [=](){
+
+//    });
+
+    connect(&this->mSelectVC, &SelectVC::wtBackBtnClicked, [=](){
+
+        this->show();
+        this->mSelectVC.hide();
+    });
 
     connect(btnStart, &MyButton::clicked, [=](){
 
@@ -39,7 +50,15 @@ StartVC::StartVC(QWidget *parent) : WTMainWindow(parent)
 
             btnStart->setEnabled(true);
 
+            // 点击完成然后场景转换
+            // 1. 隐藏当前窗口
+            this->hide();
+            // 2. 显示第二个窗口
+            this->mSelectVC.show();
         });
+
+
+        //
 
     });
 

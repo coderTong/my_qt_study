@@ -1,12 +1,15 @@
 #include "wtmainwindow.h"
 #include "ui_wtmainwindow.h"
 
-
+#include <QDebug>
 
 WTMainWindow::WTMainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::WTMainWindow)
 {
+
+    qDebug() << __func__;
+
     ui->setupUi(this);
 
     // 窗口标题

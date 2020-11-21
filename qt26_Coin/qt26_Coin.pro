@@ -28,12 +28,14 @@ SOURCES += \
         main.cpp \
         wtmainwindow.cpp \
     startvc.cpp \
-    mybutton.cpp
+    mybutton.cpp \
+    selectvc.cpp
 
 HEADERS += \
         wtmainwindow.h \
     startvc.h \
-    mybutton.h
+    mybutton.h \
+    selectvc.h
 
 FORMS += \
         wtmainwindow.ui
