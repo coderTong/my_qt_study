@@ -64,6 +64,15 @@ void MyButton::paintEvent(QPaintEvent *event)
 
     painter.drawPixmap(0,0,this->width(), this->height(), pix);
 
+    // 画文字
+
+    painter.drawText(0,
+                     0,
+                     this->width(),
+                     this->height(),
+                     Qt::AlignHCenter | Qt::AlignVCenter,
+                     this->text());
+
 }
 
 // 鼠标按下

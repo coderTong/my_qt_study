@@ -19,6 +19,39 @@ SelectVC::SelectVC(QWidget *parent) : WTMainWindow(parent)
 
     btn->move(this->width() - btn->width(),
               this->height() - btn->height());
+
+
+
+    // 关卡按钮20个
+    const int colWidth = 70;
+    const int rowHeight = 70;
+
+    // x, y 偏移
+    const int offsetX = 25;
+    const int offsetY = 130;
+
+    for (int i = 0; i < 20; i++) {
+
+        MyButton * btn = new MyButton(":/res/LevelIcon.png",":/res/LevelIcon.png", this);
+        btn->setText(QString::number(i+1));
+
+        // 排列
+        // 行 i / 4
+        // 列 i % 4
+
+        int row = i / 4;
+        int col = i % 4;
+
+        // x 坐标 = 列数 * 列宽 + x偏移
+        // y 坐标 = 行数 * 行高 + y偏移
+
+        int x = col * colWidth + offsetX;
+        int y = row * rowHeight + offsetY;
+
+        btn->resize(57,57);
+        btn->move(x,y);
+
+    }
 }
 
 void SelectVC::paintEvent(QPaintEvent *event)
