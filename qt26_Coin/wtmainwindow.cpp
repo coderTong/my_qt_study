@@ -24,6 +24,7 @@ WTMainWindow::WTMainWindow(QWidget *parent) :
 WTMainWindow::~WTMainWindow()
 {
     delete ui;
+    qDebug() << __func__;
 }
 
 void WTMainWindow::paintEvent(QPaintEvent *event)

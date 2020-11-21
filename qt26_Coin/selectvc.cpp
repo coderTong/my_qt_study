@@ -3,6 +3,7 @@
 #include <QDebug>
 #include "mybutton.h"
 #include <QMenuBar>
+#include "playvc.h"
 
 SelectVC::SelectVC(QWidget *parent) : WTMainWindow(parent)
 {
@@ -50,6 +51,22 @@ SelectVC::SelectVC(QWidget *parent) : WTMainWindow(parent)
 
         btn->resize(57,57);
         btn->move(x,y);
+
+        connect(btn, &MyButton::clicked, [=](){
+
+            PlayVC * pVC = new PlayVC(i+1);
+            // 设置关闭的时候释放
+            pVC->setAttribute(Qt::WA_DeleteOnClose);
+            pVC->show();
+            this->hide();
+
+            connect(pVC, &PlayVC::wtBackBtnClicked, [=](){
+
+                this->show();
+                pVC->close();
+            });
+
+        });
 
     }
 }
