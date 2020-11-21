@@ -23,6 +23,9 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private:
+
+    void judgeWin();
+
     // 硬币数组
     CoinButton *mCoins[4][4];
 };

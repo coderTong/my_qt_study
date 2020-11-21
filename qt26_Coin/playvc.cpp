@@ -3,12 +3,10 @@
 #include <QDebug>
 #include <QMenuBar>
 #include <QLabel>
-
-
 #include <QTimer>
-
-
 #include "dataconfig.h"
+
+#include <QMessageBox>
 
 PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
 {
@@ -107,6 +105,9 @@ void PlayVC::flip(int row, int col)
         {
             this->mCoins[row][col+1]->flip();
         }
+
+        // 判断游戏硬币是否胜利
+        this->judgeWin();
     });
 
 
@@ -130,6 +131,25 @@ void PlayVC::paintEvent(QPaintEvent *event)
     pix = pix.scaled(pix.width()/2, pix.height()/2);
 
     painter.drawPixmap(10,0, pix);
+}
+
+void PlayVC::judgeWin()
+{
+    // 判断状态都是1
+    for (int row = 0; row < 4; row++) {
+
+        for (int col = 0; col < 4; col++) {
+
+            // 只要有一个是银币就游戏继续
+            if (!this->mCoins[row][col]->state())
+            {
+                return;
+            }
+        }
+    }
+
+    // 到这一步, 所有都是金币了
+    QMessageBox::information(this, "恭喜","你已经胜利了!");
 }
 
 
