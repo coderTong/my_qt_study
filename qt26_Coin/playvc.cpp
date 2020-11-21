@@ -4,7 +4,9 @@
 #include <QMenuBar>
 #include <QLabel>
 
-#include "coinbutton.h"
+
+#include <QTimer>
+
 
 #include "dataconfig.h"
 
@@ -50,6 +52,8 @@ PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
 
             //
            CoinButton *btn = new CoinButton(this);
+           // 存储
+           mCoins[row][col] = btn;
 
            // move + resize 就等iOS setFrame
            btn->setGeometry(x,y,50,50);
@@ -58,7 +62,10 @@ PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
 
            connect(btn, &QPushButton::clicked, [=](){
 
-               btn->flip();
+               //btn->flip();
+
+               this->flip(row, col);
+
            });
         }
     }
@@ -69,6 +76,41 @@ PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
 PlayVC::~PlayVC()
 {
     qDebug() << __func__;
+}
+
+void PlayVC::flip(int row, int col)
+{
+    this->mCoins[row][col]->flip();
+
+    // 翻动上下左右的硬币
+    QTimer::singleShot(250, [=](){
+        // 下
+        if(row+1 < 4)
+        {
+            this->mCoins[row+1][col]->flip();
+        }
+
+        // 上
+        if(row-1 >= 0)
+        {
+            this->mCoins[row-1][col]->flip();
+        }
+
+        // 左
+        if (col - 1 >= 0)
+        {
+            this->mCoins[row][col-1]->flip();
+        }
+
+        // 右
+        if (col + 1 < 4)
+        {
+            this->mCoins[row][col+1]->flip();
+        }
+    });
+
+
+
 }
 
 void PlayVC::paintEvent(QPaintEvent *event)
