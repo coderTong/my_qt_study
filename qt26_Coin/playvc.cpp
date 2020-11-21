@@ -4,6 +4,8 @@
 #include <QMenuBar>
 #include <QLabel>
 
+#include "coinbutton.h"
+
 PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
 {
     MyButton * btn = new MyButton(":/res/BackButton.png",":/res/BackButtonSelected.png", this);
@@ -23,6 +25,39 @@ PlayVC::PlayVC(int level, QWidget *parent) : WTMainWindow(parent)
     label->setFont( QFont("华文新魏", 20) );
     label->move(30, this->height() - label->height());
 
+
+    // 16个硬币按钮
+    // 关卡按钮20个
+    const int colWidth = 50;
+    const int rowHeight = 75;
+    // x, y 偏移
+    const int offsetX = 57;
+    const int offsetY = 200;
+
+    for (int row = 0; row < 4; row++) {
+
+        for (int col = 0; col < 4; col++) {
+
+            // x 坐标 = 列数 * 列宽 + x偏移
+            // y 坐标 = 行数 * 行高 + y偏移
+
+            int x = col * colWidth + offsetX;
+            int y = row * rowHeight + offsetY;
+
+            //
+           CoinButton *btn = new CoinButton(this);
+
+           // move + resize 就等iOS setFrame
+           btn->setGeometry(x,y,50,50);
+           btn->setState(1);
+
+
+           connect(btn, &QPushButton::clicked, [=](){
+
+               btn->flip();
+           });
+        }
+    }
 
 }
 

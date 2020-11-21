@@ -30,14 +30,16 @@ SOURCES += \
     startvc.cpp \
     mybutton.cpp \
     selectvc.cpp \
-    playvc.cpp
+    playvc.cpp \
+    coinbutton.cpp
 
 HEADERS += \
         wtmainwindow.h \
     startvc.h \
     mybutton.h \
     selectvc.h \
-    playvc.h
+    playvc.h \
+    coinbutton.h
 
 FORMS += \
         wtmainwindow.ui
