@@ -58,14 +58,18 @@ SelectVC::SelectVC(QWidget *parent) : WTMainWindow(parent)
             PlayVC * pVC = new PlayVC(i+1);
             // 设置关闭的时候释放
             pVC->setAttribute(Qt::WA_DeleteOnClose);
+            pVC->move(this->pos());
             pVC->show();
             this->hide();
 
             connect(pVC, &PlayVC::wtBackBtnClicked, [=](){
 
                 QSound::play(":/res/BackButtonSound.wav");
+                this->move(pVC->pos());
                 this->show();
                 pVC->close();
+
+
             });
 
         });

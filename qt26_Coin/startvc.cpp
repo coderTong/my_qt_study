@@ -29,6 +29,8 @@ StartVC::StartVC(QWidget *parent) : WTMainWindow(parent)
         QSound::play(":/res/BackButtonSound.wav");
         this->show();
         this->mSelectVC.hide();
+
+        this->move(this->mSelectVC.pos());
     });
 
     // 开始按钮被点击
@@ -60,6 +62,9 @@ StartVC::StartVC(QWidget *parent) : WTMainWindow(parent)
             this->hide();
             // 2. 显示第二个窗口
             this->mSelectVC.show();
+
+            // 将窗口移动到当前窗口位置
+            this->mSelectVC.move(this->pos());
         });
 
 
