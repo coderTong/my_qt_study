@@ -19,9 +19,9 @@ win32{
 macx{
 
 
-INCLUDEPATH += /Users/codew/Desktop/qt/my_qt_study/qt28_ffmpeg/libFFmpeg/include
+INCLUDEPATH += /Users/codew/Desktop/qt/file/lib/20/libFFmpeg/include
 
-LIBS += -L/Users/codew/Desktop/qt/my_qt_study/qt28_ffmpeg/libFFmpeg/lib
+LIBS += -L/Users/codew/Desktop/qt/file/lib/20/libFFmpeg/lib
 
 #LIBS += -lavcodec \
 #        -lavdevice \

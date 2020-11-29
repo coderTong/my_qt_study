@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     setGeometry(QRect(0,0,640,360));
 
-    char* serverIP="192.168.1.104";
+    char* serverIP="192.168.31.148";
     char* userName="admin";
     char* password="123456";
 
